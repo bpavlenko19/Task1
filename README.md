@@ -1,30 +1,3 @@
-# Модуль Users
-
-class User:
-    def __init__(self, username, email, password):
-        self.username = username
-        self.email = email
-        self.password = password
-        self.subscriptions = []
-
-    def subscribe(self, subscription):
-        self.subscriptions.append(subscription)
-
-    def __str__(self):
-        return f"User: {self.username}, Email: {self.email}"
-
-
-# Модуль Subscriptions
-
-class Subscription:
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
-
-    def __str__(self):
-        return f"Subscription: {self.name}, Price: {self.price}"
-
-
 # Модуль Auth
 
 class AuthService:
@@ -42,10 +15,35 @@ class AuthService:
                 return user
         return None
 
+# Модуль Users
 
-# Сценарій: Користувач підписується на нову послугу
+class User:
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = password
+        self.subscriptions = []
+
+    def subscribe(self, subscription):
+        self.subscriptions.append(subscription)
+
+    def __str__(self):
+        return f"User: {self.username}, Email: {self.email}"
+
+# Модуль Subscriptions
+
+class Subscription:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f"Subscription: {self.name}, Price: {self.price}"
+
+# Основний код
 
 if __name__ == "__main__":
+    # Створення об'єкту сервісу автентифікації
     auth_service = AuthService()
 
     # Реєстрація користувача
